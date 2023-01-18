@@ -17,7 +17,7 @@ Link to proposal: https://dashboard.internetcomputer.org/proposal/92573
 
 Answer: 
 
-let defines a static value, it cannot be modify 
+The constant "let" defines a static value, it cannot be modify 
 
 > 3. What is the issue with the following code sample?
 
