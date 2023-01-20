@@ -23,3 +23,44 @@ So base on this our equation shall be: "10 * 1.498 * 1.125 = 16,8525"
 So your voting power is 16,8525
 
 Source: https://internetcomputer.org/docs/current/tokenomics/nns/nns-staking-voting-rewards/#voting-power
+
+> 4. What is wrong with the following code?
+
+    actor {
+     let n : Nat = 50;
+     let t : Text = "Hello";
+
+    public func convert_to_text(m : Nat) : async Text {
+    Nat.toText(m);
+    };
+ 
+    }
+
+Answer:
+    The toText() function is being used tho it was not declared for its use, import Nat "mo:base/Nat" would be missing
+
+> 5. What is wrong with the following code?
+
+    actor {
+    var languages : [var Text] = ["English", "German", "Chinese", "Japanese", "French"];
+
+    public func show_languages(language : Text) : async [var Text] {
+    return (languages);
+    };
+    }
+
+Answer:
+    The public function should not return a mutable array so we have to change the languages array to immutable the languages array before returning it and remove the var keyword from the return type
+
+> 6.What is wrong with the following code?
+    actor {
+    var languages : [Text] = ["English", "German", "Chinese", "Japanese", "French"];
+
+    public func add_language(new_language: Text) : async [Text] {
+    languages := Array.append<Text>(languages, [new_language]);
+    return (languages);
+    };
+    }
+
+Answer:
+    importing the array library is mandatory, import Array "mo:base/Array", has to be used in the function, also the append function is deprecated so we use a Buffer instead of an Array for that reason.
